@@ -34,6 +34,8 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
+            tabsToolStripMenuItem = new ToolStripMenuItem();
+            onToolStripMenuItem = new ToolStripMenuItem();
             textBoxURL = new TextBox();
             toolStrip1 = new ToolStrip();
             toolStripButtonBack = new ToolStripButton();
@@ -42,8 +44,6 @@
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripProgressBar1 = new ToolStripProgressBar();
             toolStripButtonGo = new ToolStripButton();
-            tabsToolStripMenuItem = new ToolStripMenuItem();
-            onToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)webView2_Main).BeginInit();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -89,6 +89,19 @@
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(55, 24);
             viewToolStripMenuItem.Text = "View";
+            // 
+            // tabsToolStripMenuItem
+            // 
+            tabsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { onToolStripMenuItem });
+            tabsToolStripMenuItem.Name = "tabsToolStripMenuItem";
+            tabsToolStripMenuItem.Size = new Size(121, 26);
+            tabsToolStripMenuItem.Text = "Tabs";
+            // 
+            // onToolStripMenuItem
+            // 
+            onToolStripMenuItem.Name = "onToolStripMenuItem";
+            onToolStripMenuItem.Size = new Size(111, 26);
+            onToolStripMenuItem.Text = "On";
             // 
             // textBoxURL
             // 
@@ -157,19 +170,6 @@
             toolStripButtonGo.Size = new Size(32, 24);
             toolStripButtonGo.Text = "Go";
             toolStripButtonGo.Click += toolStripButtonGo_Click;
-            // 
-            // tabsToolStripMenuItem
-            // 
-            tabsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { onToolStripMenuItem });
-            tabsToolStripMenuItem.Name = "tabsToolStripMenuItem";
-            tabsToolStripMenuItem.Size = new Size(224, 26);
-            tabsToolStripMenuItem.Text = "Tabs";
-            // 
-            // onToolStripMenuItem
-            // 
-            onToolStripMenuItem.Name = "onToolStripMenuItem";
-            onToolStripMenuItem.Size = new Size(224, 26);
-            onToolStripMenuItem.Text = "On";
             // 
             // BrowserForm
             // 
