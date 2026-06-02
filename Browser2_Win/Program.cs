@@ -1,6 +1,7 @@
-using Browser_WIN.Forms;
+using Browser2_Win.Forms;
+using System.Runtime.CompilerServices;
 
-namespace Browser_WIN
+namespace Browser2_Win
 {
     internal static class Program
     {
@@ -14,6 +15,7 @@ namespace Browser_WIN
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new BrowserForm());
+
         }
     }
 }

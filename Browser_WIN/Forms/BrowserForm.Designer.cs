@@ -1,4 +1,4 @@
-﻿namespace Browser_WIN
+﻿namespace Browser_WIN.Forms
 {
     partial class BrowserForm
     {
@@ -32,10 +32,13 @@
             webView2_Main = new Microsoft.Web.WebView2.WinForms.WebView2();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            closeToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
             tabsToolStripMenuItem = new ToolStripMenuItem();
-            onToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem1 = new ToolStripMenuItem();
             textBoxURL = new TextBox();
             toolStrip1 = new ToolStrip();
             toolStripButtonBack = new ToolStripButton();
@@ -73,9 +76,28 @@
             // 
             // fileToolStripMenuItem
             // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, settingsToolStripMenuItem, closeToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(145, 26);
+            newToolStripMenuItem.Text = "New";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(145, 26);
+            settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // closeToolStripMenuItem
+            // 
+            closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            closeToolStripMenuItem.Size = new Size(145, 26);
+            closeToolStripMenuItem.Text = "Close";
             // 
             // editToolStripMenuItem
             // 
@@ -85,23 +107,22 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tabsToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tabsToolStripMenuItem, viewToolStripMenuItem1 });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(55, 24);
             viewToolStripMenuItem.Text = "View";
             // 
             // tabsToolStripMenuItem
             // 
-            tabsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { onToolStripMenuItem });
             tabsToolStripMenuItem.Name = "tabsToolStripMenuItem";
-            tabsToolStripMenuItem.Size = new Size(121, 26);
+            tabsToolStripMenuItem.Size = new Size(124, 26);
             tabsToolStripMenuItem.Text = "Tabs";
             // 
-            // onToolStripMenuItem
+            // viewToolStripMenuItem1
             // 
-            onToolStripMenuItem.Name = "onToolStripMenuItem";
-            onToolStripMenuItem.Size = new Size(111, 26);
-            onToolStripMenuItem.Text = "On";
+            viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+            viewToolStripMenuItem1.Size = new Size(124, 26);
+            viewToolStripMenuItem1.Text = "View";
             // 
             // textBoxURL
             // 
@@ -208,6 +229,9 @@
         private ToolStripProgressBar toolStripProgressBar1;
         private ToolStripButton toolStripButtonGo;
         private ToolStripMenuItem tabsToolStripMenuItem;
-        private ToolStripMenuItem onToolStripMenuItem;
+        private ToolStripMenuItem newToolStripMenuItem;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripMenuItem closeToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem1;
     }
 }

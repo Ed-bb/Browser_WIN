@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="Browser2_Win/Browser2_Win.csproj" Id="ee80388f-34b4-4165-a10e-090946e0e2e2" />
+  <Project Path="BrowserLib_Standard/BrowserLib_Standard.csproj" Id="1af3e2d4-4538-4bbf-8b70-491360c6e9fe" />
   <Project Path="Browser_WIN/Browser_WIN.csproj" />
 </Solution>

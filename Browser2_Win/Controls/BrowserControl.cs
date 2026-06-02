@@ -1,31 +1,26 @@
-using Microsoft.Web.WebView2.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
 
-namespace Browser_WIN.Forms
+namespace Browser2_Win.Controls
 {
-    public partial class BrowserForm : Form
+    public partial class BrowserControl : UserControl
     {
         #region Public Constructors
 
-        public BrowserForm()
+        public BrowserControl()
         {
             InitializeComponent();
-            menuStrip1.Visible = false;
-            toolStripProgressBar1.Visible = false;
-            toolStripTextBoxUrl.Visible = false;
-            webView2_Main.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
-            webView2_Main.EnsureCoreWebView2Async(null);
-            this.Icon = Properties.Resources.BrowserIcon_V1;
+            //this.DoubleBuffered = true;
         }
 
         #endregion Public Constructors
 
         #region Private Methods
-
-        private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
-        {
-            // Update the TextBox with the new URL
-            textBoxURL.Text = webView2_Main.Source.ToString();
-        }
 
         private Uri GetCleanUrl()
         {
@@ -86,12 +81,6 @@ namespace Browser_WIN.Forms
         private void toolStripButtonGo_Click(object sender, EventArgs e)
         {
             LoadPage();
-        }
-
-        private void WebView_CoreWebView2InitializationCompleted(object sender, EventArgs e)
-        {
-            // SourceChanged fires as soon as the URL changes
-            webView2_Main.CoreWebView2.SourceChanged += CoreWebView2_SourceChanged;
         }
 
         #endregion Private Methods
