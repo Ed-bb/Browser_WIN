@@ -47,46 +47,6 @@ namespace Browser2_Win.Controls
             }
         }
 
-    //    private readonly List<EventHandler<CoreWebView2SourceChangedEventArgs>> _pendingSourceChangedHandlers
-    //= new List<EventHandler<CoreWebView2SourceChangedEventArgs>>();
-
-        //public event EventHandler<CoreWebView2SourceChangedEventArgs> SourceChanged
-        //{
-        //    add
-        //    {
-        //        if (value is null) return;
-        //        var core = webView2_Main.CoreWebView2;
-        //        webView2_Main.SourceChanged += value;
-        //        if (core is not null)
-        //        {
-        //            core.SourceChanged += value;
-        //        }
-        //        else
-        //        {
-        //            lock (_pendingSourceChangedHandlers)
-        //            {
-        //                _pendingSourceChangedHandlers.Add(value);
-        //            }
-        //        }
-        //    }
-        //    remove
-        //    {
-        //        if (value is null) return;
-        //        var core = webView2_Main.CoreWebView2;
-        //        if (core is not null)
-        //        {
-        //            core.SourceChanged -= value;
-        //        }
-        //        else
-        //        {
-        //            lock (_pendingSourceChangedHandlers)
-        //            {
-        //                _pendingSourceChangedHandlers.Remove(value);
-        //            }
-        //        }
-        //    }
-        //}
-
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Uri browserUrl
         {
@@ -109,16 +69,6 @@ namespace Browser2_Win.Controls
             // SourceChanged fires as soon as the URL changes
             webView2_Main.SourceChanged += CoreWebView2_SourceChanged;
 
-            //var core = webView2_Main.CoreWebView2;
-            //if (core is null) return;
-            //lock (_pendingSourceChangedHandlers)
-            //{
-            //    foreach (var h in _pendingSourceChangedHandlers)
-            //    {
-            //        core.SourceChanged += h;
-            //    }
-            //    _pendingSourceChangedHandlers.Clear();
-            //}
         }
 
         private void LoadPage()
