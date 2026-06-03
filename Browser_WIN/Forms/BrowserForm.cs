@@ -21,15 +21,9 @@ namespace Browser_WIN.Forms
 
         #region Private Methods
 
-        private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+        private static Uri GetCleanUrl(string urlString)
         {
-            // Update the TextBox with the new URL
-            textBoxURL.Text = webView2_Main.Source.ToString();
-        }
-
-        private Uri GetCleanUrl()
-        {
-            var rawUrl = textBoxURL.Text;
+            var rawUrl = urlString;
             Uri uri = null;
 
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
@@ -51,9 +45,15 @@ namespace Browser_WIN.Forms
             return uri;
         }
 
+        private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+        {
+            // Update the TextBox with the new URL
+            textBoxURL.Text = webView2_Main.Source.ToString();
+        }
+
         private void LoadPage()
         {
-            Uri uri = GetCleanUrl();
+            Uri uri = GetCleanUrl(textBoxURL.Text);
 
             webView2_Main.Source = uri;
         }
@@ -95,5 +95,10 @@ namespace Browser_WIN.Forms
         }
 
         #endregion Private Methods
+
+        private void BrowserForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

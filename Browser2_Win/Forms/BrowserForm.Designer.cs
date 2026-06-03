@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newTabToolStripMenuItem = new ToolStripMenuItem();
@@ -38,6 +39,7 @@
             tabControlBrowsers = new TabControl();
             tabPage1 = new TabPage();
             browserControl1 = new Browser2_Win.Controls.BrowserControl();
+            toolTipForm = new ToolTip(components);
             menuStrip1.SuspendLayout();
             tabControlBrowsers.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -124,6 +126,10 @@
             browserControl1.Size = new Size(846, 428);
             browserControl1.TabIndex = 0;
             // 
+            // toolTipForm
+            // 
+            toolTipForm.ShowAlways = true;
+            // 
             // BrowserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -154,5 +160,6 @@
         private TabPage tabPage1;
         private Browser2_Win.Controls.BrowserControl browserControl1;
         private ToolStripMenuItem newTabToolStripMenuItem;
+        private ToolTip toolTipForm;
     }
 }

@@ -204,6 +204,7 @@
             MainMenuStrip = menuStrip1;
             Name = "BrowserForm";
             Text = "Browser.Win";
+            FormClosing += BrowserForm_FormClosing;
             ((System.ComponentModel.ISupportInitialize)webView2_Main).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
