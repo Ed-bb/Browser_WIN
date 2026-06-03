@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrowserLib_Standard.Utilities;
+using Microsoft.Web.WebView2.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,39 +18,112 @@ namespace Browser2_Win.Controls
         {
             InitializeComponent();
             //this.DoubleBuffered = true;
+            webView2_Main.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
+            webView2_Main.EnsureCoreWebView2Async(null);
+        }
+
+        public BrowserControl(EventHandler<CoreWebView2SourceChangedEventArgs> sourceChangedHandler)
+        {
+            InitializeComponent();
+            //this.DoubleBuffered = true;
+            webView2_Main.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
+            webView2_Main.EnsureCoreWebView2Async();
+            SourceChanged += sourceChangedHandler;
+        }
+
+        public event EventHandler<CoreWebView2SourceChangedEventArgs> SourceChanged
+        {
+            add
+            {
+                if (value is not null)
+                {
+                    webView2_Main.SourceChanged += value;
+                }
+            }
+
+            remove
+            {
+                webView2_Main.SourceChanged -= value;
+            }
+        }
+
+    //    private readonly List<EventHandler<CoreWebView2SourceChangedEventArgs>> _pendingSourceChangedHandlers
+    //= new List<EventHandler<CoreWebView2SourceChangedEventArgs>>();
+
+        //public event EventHandler<CoreWebView2SourceChangedEventArgs> SourceChanged
+        //{
+        //    add
+        //    {
+        //        if (value is null) return;
+        //        var core = webView2_Main.CoreWebView2;
+        //        webView2_Main.SourceChanged += value;
+        //        if (core is not null)
+        //        {
+        //            core.SourceChanged += value;
+        //        }
+        //        else
+        //        {
+        //            lock (_pendingSourceChangedHandlers)
+        //            {
+        //                _pendingSourceChangedHandlers.Add(value);
+        //            }
+        //        }
+        //    }
+        //    remove
+        //    {
+        //        if (value is null) return;
+        //        var core = webView2_Main.CoreWebView2;
+        //        if (core is not null)
+        //        {
+        //            core.SourceChanged -= value;
+        //        }
+        //        else
+        //        {
+        //            lock (_pendingSourceChangedHandlers)
+        //            {
+        //                _pendingSourceChangedHandlers.Remove(value);
+        //            }
+        //        }
+        //    }
+        //}
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Uri browserUrl
+        {
+            get => webView2_Main.Source;
+            set => webView2_Main.Source = value;
         }
 
         #endregion Public Constructors
 
         #region Private Methods
 
-        private Uri GetCleanUrl()
+        private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            var rawUrl = textBoxURL.Text;
-            Uri uri = null;
+            // Update the TextBox with the new URL
+            textBoxURL.Text = webView2_Main.Source.ToString();
+        }
 
-            if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
-            {
-                uri = new Uri(rawUrl);
-            }
-            else if (!rawUrl.Contains(" ") && rawUrl.Contains("."))
-            {
-                // An invalid URI contains a dot and no spaces, try tacking http:// on the front.
-                uri = new Uri("http://" + rawUrl);
-            }
-            else
-            {
-                // Otherwise treat it as a web search.
-                uri = new Uri("https://google.com/search?q=" +
-                    String.Join("+", Uri.EscapeDataString(rawUrl).Split(new string[] { "%20" }, StringSplitOptions.RemoveEmptyEntries)));
-            }
+        private void WebView_CoreWebView2InitializationCompleted(object sender, EventArgs e)
+        {
+            // SourceChanged fires as soon as the URL changes
+            webView2_Main.SourceChanged += CoreWebView2_SourceChanged;
 
-            return uri;
+            //var core = webView2_Main.CoreWebView2;
+            //if (core is null) return;
+            //lock (_pendingSourceChangedHandlers)
+            //{
+            //    foreach (var h in _pendingSourceChangedHandlers)
+            //    {
+            //        core.SourceChanged += h;
+            //    }
+            //    _pendingSourceChangedHandlers.Clear();
+            //}
         }
 
         private void LoadPage()
         {
-            Uri uri = GetCleanUrl();
+            Uri uri = BrowserHelpers.GetCleanUrl(textBoxURL.Text);
 
             webView2_Main.Source = uri;
         }

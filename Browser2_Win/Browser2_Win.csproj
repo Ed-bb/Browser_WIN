@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BrowserLib_Standard\BrowserLib_Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Forms\BrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

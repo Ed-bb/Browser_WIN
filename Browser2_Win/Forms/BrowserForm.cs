@@ -1,3 +1,5 @@
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.WinForms;
 using System.Linq;
 
 namespace Browser2_Win.Forms
@@ -10,6 +12,13 @@ namespace Browser2_Win.Forms
         {
             InitializeComponent();
             //DoubleBuffered = true;
+            browserControl1.SourceChanged += BrowserControlTab_SourceChanged;
+        }
+
+        private void BrowserControlTab_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+        {
+            //((CoreWebView2)sender).
+            
         }
 
         #endregion Public Constructors
@@ -18,7 +27,26 @@ namespace Browser2_Win.Forms
 
         private void AddNewBrowserTab()
         {
-            tabControlBrowsers.TabPages.Add(new TabPage("New Tab") { Controls = { new Controls.BrowserControl() { Dock = DockStyle.Fill } } });
+            var browserControl = new Controls.BrowserControl();
+
+            var newTab = new TabPage("New Tab")
+            {
+                Controls =
+                {
+                    browserControl
+                }
+            };
+
+            browserControl.Dock = DockStyle.Fill;
+            browserControl.SourceChanged += (sender, e) =>
+            {
+                var browser = (WebView2)sender;
+                string docTitle = browser.CoreWebView2.DocumentTitle;
+                newTab.Text = docTitle.Length > 10 ? docTitle.Substring(0,10) + "..." : docTitle;
+                newTab.ToolTipText = docTitle;
+            };
+
+            tabControlBrowsers.TabPages.Add(newTab);
         }
 
         private void tabControlBrowsers_DoubleClick(object sender, EventArgs e)

@@ -33,9 +33,7 @@
             toolStrip1 = new ToolStrip();
             toolStripButtonBack = new ToolStripButton();
             toolStripButtonForward = new ToolStripButton();
-            toolStripTextBoxUrl = new ToolStripTextBox();
             toolStripSeparator1 = new ToolStripSeparator();
-            toolStripProgressBar1 = new ToolStripProgressBar();
             toolStripButtonGo = new ToolStripButton();
             textBoxURL = new TextBox();
             ((System.ComponentModel.ISupportInitialize)webView2_Main).BeginInit();
@@ -57,7 +55,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonBack, toolStripButtonForward, toolStripTextBoxUrl, toolStripSeparator1, toolStripProgressBar1, toolStripButtonGo });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonBack, toolStripButtonForward, toolStripSeparator1, toolStripButtonGo });
             toolStrip1.Location = new Point(0, 27);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(755, 27);
@@ -84,21 +82,10 @@
             toolStripButtonForward.Text = "Forward";
             toolStripButtonForward.Click += toolStripButtonForward_Click;
             // 
-            // toolStripTextBoxUrl
-            // 
-            toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
-            toolStripTextBoxUrl.Size = new Size(100, 27);
-            // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 27);
-            // 
-            // toolStripProgressBar1
-            // 
-            toolStripProgressBar1.Alignment = ToolStripItemAlignment.Right;
-            toolStripProgressBar1.Name = "toolStripProgressBar1";
-            toolStripProgressBar1.Size = new Size(100, 24);
             // 
             // toolStripButtonGo
             // 
@@ -144,9 +131,7 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButtonBack;
         private ToolStripButton toolStripButtonForward;
-        private ToolStripTextBox toolStripTextBoxUrl;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripProgressBar toolStripProgressBar1;
         private ToolStripButton toolStripButtonGo;
         private TextBox textBoxURL;
     }
