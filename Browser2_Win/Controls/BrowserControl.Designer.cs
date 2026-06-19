@@ -101,6 +101,7 @@
             // 
             textBoxURL.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBoxURL.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBoxURL.BorderStyle = BorderStyle.FixedSingle;
             textBoxURL.Dock = DockStyle.Top;
             textBoxURL.Location = new Point(0, 0);
             textBoxURL.Name = "textBoxURL";

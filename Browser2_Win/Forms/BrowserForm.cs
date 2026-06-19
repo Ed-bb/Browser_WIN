@@ -13,6 +13,18 @@ namespace Browser2_Win.Forms
             InitializeComponent();
             //DoubleBuffered = true;
             browserControl1.SourceChanged += BrowserControlTab_SourceChanged;
+            // set darkmode if the system is in dark mode
+            //if (BrowserLib_Standard.Utilities.SystemThemeHelper.IsSystemInDarkMode())
+            //{
+            //    var webView2Settings = browserControl1.CoreWebView2.Settings;
+            //    webView2Settings.AreDefaultContextMenusEnabled = false;
+            //    webView2Settings.AreDevToolsEnabled = false;
+            //    webView2Settings.AreDefaultScriptDialogsEnabled = false;
+            //    webView2Settings.IsStatusBarEnabled = false;
+            //    webView2Settings.IsZoomControlEnabled = false;
+            //    webView2Settings.IsBuiltInErrorPageEnabled = false;
+            //    webView2Settings.UserAgent += " Browser2_Win_DarkMode";
+            //}
         }
 
         #endregion Public Constructors
@@ -25,6 +37,7 @@ namespace Browser2_Win.Forms
 
             var newTab = new TabPage("New Tab")
             {
+                Margin = new Padding(0),
                 Controls =
                 {
                     browserControl

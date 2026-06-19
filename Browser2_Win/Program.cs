@@ -14,8 +14,12 @@ namespace Browser2_Win
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new BrowserForm());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.SetColorMode(SystemColorMode.Dark);
+            Application.SetDefaultFont(new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point));
+            Application.SetCompatibleTextRenderingDefault(false);
 
+            Application.Run(new BrowserForm());
         }
     }
 }
