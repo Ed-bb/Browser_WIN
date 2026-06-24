@@ -1,0 +1,1 @@
+﻿Browser3_Win is the third iteration of a web browser application designed for Windows. It builds upon the features of its predecessors, Browser_Win and Browser2_Win, by introducing advanced capabilities such as a webview environment and support for extensions.
