@@ -1,3 +1,5 @@
+using Browser3_Win.Forms;
+
 namespace Browser3_Win
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Browser3_Win
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new BrowserForm());
         }
     }
 }

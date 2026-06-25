@@ -13,8 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\" />
-    <Folder Include="Controls\" />
+    <ProjectReference Include="..\BrowserLib_Standard\BrowserLib_Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\BrowserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\BrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
