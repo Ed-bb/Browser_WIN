@@ -69,10 +69,8 @@ Contributions are welcome. If you want to improve examples, add more features, o
 
 ## License
 
-This repository does not include a license file. If you want to make this code reusable by others, consider adding a license such as the MIT License.
+All rights reserved. Future license to be determined.
 
 ## Contact
 
 Maintainer: Ed-bb
-
-If you'd like changes to this README (more detail, screenshots, badges, or a specific license), tell me what you'd like and I will update it.
